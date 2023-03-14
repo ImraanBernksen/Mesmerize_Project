@@ -40,28 +40,28 @@ route.delete('/user/:id', (req, res)=>{
 });
 
 /** Products **/
-route.get('/items', (req, res)=> {
+route.get('/products', (req, res)=> {
     product.fetchProducts(req, res);
 })
 
-route.get('/item/:id', 
+route.get('/product/:id', 
 (req, res)=> {
     product.fetchProduct(req, res);
 })
 
-route.post('/item', 
+route.post('/product', 
 bodyParser.json(), 
 (req, res)=> {
     product.addProduct(req, res);
 })
 
-route.put('/item/:id', 
+route.put('/product/:id', 
 bodyParser.json(),
 (req, res)=> {
     product.updateProduct(req, res);
 })
 
-route.delete('/item/:id', 
+route.delete('/product/:id', 
 (req, res)=> {
     product.deleteProduct(req, res);
 })
