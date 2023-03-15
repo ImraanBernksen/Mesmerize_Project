@@ -1,7 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-white">
       <div class="container-fluid">
-        <img style="height: 2rem; padding-left: 10px;" src="https://i.postimg.cc/yY9SvgLx/justLogo.png">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,6 +22,7 @@
               <a class="nav-link" href="/admin">ADMIN</a>
             </li>
           </ul>
+          <img style="height: 2rem; padding-right: 45px" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/signup">SIGNUP</a>

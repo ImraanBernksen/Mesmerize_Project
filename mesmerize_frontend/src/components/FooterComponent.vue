@@ -1,6 +1,8 @@
 <template>
     <footer style="background-color: black;">
-        <hr>
+        <br>
+        <div class="line"></div>
+        <br>
         <div class="container">
             <div class="row">
             <div class="col-sm-4 text-start" style="display:grid; justify-content:center;">
@@ -61,11 +63,11 @@ footer {
     text-align: start;
 }
 
-hr {
-    border: 2px solid white;
-    width: 80%;
-    border-color: white;
-    margin: 0 auto;
-    margin-bottom: 3rem;
+.line {
+    height: 2px;
+    width: 90vw;
+    background-color: white;
+    justify-content: center;
+    margin: auto;
 }
 </style>

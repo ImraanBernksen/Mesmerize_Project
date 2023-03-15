@@ -2,16 +2,19 @@
     <NavBar/>
     <div class="background">
         <h2>Login</h2>
-        <form>
+        <form @submit.prevent="login">
           <div class="form-outline mb-4">
             <label class="form-label" for="form2Example1">Email address</label>
-            <input type="email" placeholder="@gmail.com" id="form2Example1" class="form-control" />
+            <input type="email" v-model="payload.userEmail" placeholder="@gmail.com" id="form2Example1" class="form-control" required />
           </div>
           <div class="form-outline mb-4">
             <label class="form-label" for="form2Example2">Password</label>
-            <input type="password" placeholder="*****" id="form2Example2" class="form-control" />
+            <input type="password" v-model="payload.userPassword" placeholder="*****" id="form2Example2" class="form-control" required />
           </div>
-          <button type="submit" class="btn btn-primary btn-block mb-4">SIGN IN</button>
+          <div class="form-outline mb-4">
+            <p class="lead">{{message}}</p>
+          </div>
+          <button type="submit" class="btn btn-outline-light btn-block mb-4" @click.prevent="login">SIGN IN</button>
           <div class="text-center">
             <p>Don't have an account <a href="/signup">Sign up</a></p>
           </div>
@@ -26,6 +29,25 @@ export default {
   components: {
   NavBar,
   FooterComponent
+},
+data() {
+  return {
+    payload: {
+      userEmail: '',
+      userPassword: ''
+    }
+  }
+},
+computed: {
+  message() {
+    return this.$store.state.message
+  }
+},
+methods: {
+  login() {
+    console.log('Debug:', this.payload);
+    this.$store.dispatch('login', this.payload)
+  }
 }
 }
 </script>

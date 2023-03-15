@@ -1,21 +1,24 @@
 <template>
-    <div class="background">
+    <div class="background-single">
         <NavBar/>
-        <div v-if="spinner">
-            <SpinnerComponent/>      
-         </div>
-        <div v-else class="container">
-            <div class="row" style="gap: 10rem; justify-content: center;" >
-            <div class="card"  style="width: 30rem;">
+        <SpinnerComponent v-if="isLoading"/>
+        <div class="container">
+            <div class="row align-items-center" >
+              <div class="col-sm-6" style="margin-top: 50px;">
                 <img :src="product?.productImg" class="card-img-top mt-2">
-                <div class="card-body text-center text-dark">
-                    <h5 class="card-title">{{ product?.productName }}</h5>
-                    <p class="card-text">{{ product?.productDescription }}</p>
-                    <p class="card-text">{{ product?.category }}</p>
-                    <p class="card-text">Price: R{{ product?.productPrice }}</p>
-                    <p class="card-text">{{ product?.quantity }}</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="card bg-black"   style="width: 100%;">
+                    <div class="card-body text-start">
+                        <h5 class="card-title">Name: {{ product?.productName }}</h5><br>
+                        <h5 class="card-text">Description: {{ product?.productDescription }}</h5><br>
+                        <h5 class="card-text">Category: {{ product?.category }}</h5><br>
+                        <h5 class="card-text">Price: R{{ product?.productPrice }}</h5><br>
+                        <h5 class="card-text">Quantity: {{ product?.quantity }}</h5><br>
+                        <button class="btn btn-outline-light">Add to Cart</button>
+                    </div>
                 </div>
-            </div>
+              </div>
         </div>
         </div>
         <FooterComponent/>
@@ -34,6 +37,16 @@ export default {
     FooterComponent,
     SpinnerComponent
 },
+data(){
+          return {
+            isLoading: true
+          }
+        },
+        created(){
+          setTimeout(()=> {
+            this.isLoading = false;
+          }, 2000);
+        },
 setup() {
     const store = useStore();
     const product =
@@ -50,6 +63,13 @@ setup() {
   }
 }
 </script>
-<style>
+<style scoped>
+.background-single{
+  background-color: white;
+}
+
+.container {
+  padding: 10px;
+}
     
 </style>

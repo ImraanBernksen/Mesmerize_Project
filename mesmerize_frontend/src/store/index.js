@@ -78,17 +78,19 @@ export default createStore({
         context.commit('setSpinner', true);
       }
     },
-    async login({ commit }, {userEmail, userPassword}) {
+    async login(context, payload) {
       try {
-        const response = await axios.post('/login', { userEmail, userPassword });
-        const { token, user } = response.data;
-        localStorage.setItem('token', token);
-        commit('theUser', user);
-        commit('setIsLoggedIn', true);
-        return true;
+        const response = await axios.post(`${mesmerizeAPI}login`, payload);
+        console.log('Response' , response);
+        const {result, msg, err} = await response.data
+        if (result) {
+          context.commit('theUser', result);
+          context.commit('setMessage', msg);
+        } else {
+          context.commit('setMessage', err);
+        }
       } catch (error) {
         console.error(error);
-        return false;
       }
     },
     logout({ commit }) {

@@ -3,7 +3,6 @@
     <div class="background">
         <h2>Admin</h2>
     <h4 class="text-center">Users</h4>
-    <AddUser/><br>
   <SpinnerComponent v-if="isLoading"/>
   <div class="container-fluid table-responsive" v-else>
       <!-- Users table -->
@@ -14,6 +13,7 @@
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email Address</th>
+        <th scope="col">Password</th>
         <th scope="col">Profile</th>
         <th scope="col">Date Joined</th>
         <th scope="col">Edit</th>
@@ -26,10 +26,11 @@
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.userEmail }}</td>
+        <td>{{ user.userPassword }}</td>
         <td><img :src="user.userImg" class="img-fluid"></td>
         <td>{{ user.joinDate }}</td>
         <td><UpdateUser/></td>
-        <td><button><i class="bi bi-trash3"></i></button></td>
+        <td><DeleteUser/></td>
       </tr>
     </tbody>
   </table><br>
@@ -37,7 +38,6 @@
 
 <!-- Products table -->
 <h4 class="text-center">Products</h4>
-<AddUser/><br>
 <SpinnerComponent v-if="isLoading"/>
 <div class="container-fluid table-responsive" v-else>
   <table class="table table-hover table-light table-borderless" >
@@ -64,7 +64,7 @@
             <td><img :src="product.productImg" class="img-fluid"></td>
             <td>{{ product.quantity }}</td>
             <td><UpdateProduct/></td>
-            <td><button><i class="bi bi-trash3"></i></button></td>
+            <td><DeleteProduct/></td>
         </tr>
     </tbody>
 </table>
@@ -74,17 +74,24 @@
     <FooterComponent/>
 </template>
 <script>
-import NavBar from '../components/NavBar.vue';
-import FooterComponent from '../components/FooterComponent.vue'
-
 import { useStore } from 'vuex';
 import { computed } from '@vue/runtime-core'
+import NavBar from '../components/NavBar.vue';
+import FooterComponent from '../components/FooterComponent.vue';
 import SpinnerComponent from '@/components/SpinnerComponent.vue';
+import UpdateUser from '@/components/UpdateUser.vue';
+import DeleteUser from '@/components/DeleteUser.vue';
+import UpdateProduct from '@/components/UpdateProduct.vue';
+import DeleteProduct from '@/components/DeleteProduct.vue';
 export default {
   components: {
     NavBar,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UpdateUser,
+    DeleteUser,
+    UpdateProduct,
+    DeleteProduct
 },
 data(){
           return {
@@ -116,7 +123,7 @@ img {
     border-radius: 30px;
 }
 .table {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 }
 @media screen and(max-width: 720px) and (min-width: 300px) {
   .table {
