@@ -2,7 +2,7 @@
     <div class="background-single">
         <NavBar/>
         <SpinnerComponent v-if="isLoading"/>
-        <div class="container">
+        <div class="container" v-else>
             <div class="row align-items-center" >
               <div class="col-sm-6" style="margin-top: 50px;">
                 <img :src="product?.productImg" class="card-img-top mt-2">
@@ -38,15 +38,15 @@ export default {
     SpinnerComponent
 },
 data(){
-          return {
-            isLoading: true
-          }
-        },
-        created(){
-          setTimeout(()=> {
-            this.isLoading = false;
-          }, 2000);
-        },
+      return {
+      isLoading: true
+      }
+      },
+created(){
+      setTimeout(()=> {
+      this.isLoading = false;
+      }, 2000);
+      },
 setup() {
     const store = useStore();
     const product =

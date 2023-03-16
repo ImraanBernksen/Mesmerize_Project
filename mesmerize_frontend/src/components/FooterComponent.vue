@@ -35,7 +35,7 @@
            </div>
        </div>
        <div>
-       <p class="lead m-0 pb-2" style="color: white; padding-top: 20px;">
+       <p class="m-0 pb-2" style="color: white; padding-top: 20px;">
         &copy; 2023 Mesmerize | All Rights Reserved</p>
        </div>
     </footer>

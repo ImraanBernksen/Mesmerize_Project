@@ -1,8 +1,8 @@
 <template>
     <NavBar/>
-    <div class="background">
+    <div class="background" id="about">
       <h2>About</h2>
-      <h4 style="padding: 90px;">I am thrilled to introduce you to Mesmerize, a new clothing brand that aims to provide unique 
+      <p style="font-size: 25px; padding: 20px;">I am thrilled to introduce you to Mesmerize, a new clothing brand that aims to provide unique 
         and high-quality clothing options to fashion-conscious consumers. Our brand is built on the 
         principles of creativity, originality, and quality, and we are confident that we have the potential to
         become a major player in the fashion industry.<br><br>
@@ -14,20 +14,22 @@
         Our marketing strategy includes creating a strong social media presence, participating in 
         fashion shows and events, and collaborating with influencers and other brands. We could offer 
         exclusive discounts and promotions to our respective customers. Launching an e-commerce 
-        website to make shopping for Mesmerize clothing convenient for customers worldwide.</h4>
+        website to make shopping for Mesmerize clothing convenient for customers worldwide.</p>
         <FooterComponent/>
   </div>
-  </template>
-  <script>
-  import NavBar from '../components/NavBar.vue';
-  import FooterComponent from '../components/FooterComponent.vue'
-  export default {
-    components: {
-    NavBar,
-    FooterComponent
-  }
-  }
-  </script>
-  <style>
-    
-  </style>
+</template>
+<script>
+import NavBar from '../components/NavBar.vue';
+import FooterComponent from '../components/FooterComponent.vue'
+export default {
+  components: {
+  NavBar,
+  FooterComponent
+}
+}
+</script>
+<style scoped>
+#about {
+  padding-top: 50px;
+}
+</style>

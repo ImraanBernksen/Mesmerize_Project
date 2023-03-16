@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
+import Cookies from 'js-cookie';
 const mesmerizeAPI = "https://mesmerize-backend.onrender.com/"
 
 export default createStore({
@@ -8,6 +9,7 @@ export default createStore({
     users: null,
     product: null,
     products: null,
+    token: null,
     theSpinner: null,
     asc: true,
     message: null,
@@ -28,15 +30,18 @@ export default createStore({
     theProducts(state, values){
       state.products = values
     },
+    theToken(state, value) {
+      state.token = value
+    },
     setSpinner(state, value) {
       state.spinner = value
     },
     setMessage(state, value) {
       state.message = value
     },
-    sortProductsByPrice: (state) => {
+    setSortPrice: (state) => {
       state.products.sort((a, b) => {
-        return a.price - b.price;
+        return a.productPrice - b.productPrice;
       });
       if (!state.asc) {
         state.products.reverse();
@@ -82,9 +87,11 @@ export default createStore({
       try {
         const response = await axios.post(`${mesmerizeAPI}login`, payload);
         console.log('Response' , response);
-        const {result, msg, err} = await response.data
+        const {result, jwToken, msg, err} = await response.data
         if (result) {
           context.commit('theUser', result);
+          context.commit('theToken', jwToken);
+          Cookies.set('app_cookie', jwToken)
           context.commit('setMessage', msg);
         } else {
           context.commit('setMessage', err);

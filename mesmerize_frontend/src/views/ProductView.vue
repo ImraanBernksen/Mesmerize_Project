@@ -4,9 +4,8 @@
     <h2>Shop</h2>
     <div class="shop">
         <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All</a></li>
             <li><a class="dropdown-item" href="#">Hoodies</a></li>
             <li><a class="dropdown-item" href="#">T-Shirts</a></li>
             <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
@@ -17,11 +16,10 @@
           <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <button type="button" class="btn btn-outline-light">search</button>
         </div>
-        <button type="button" class="btn btn-light">Sort by Price</button>
-        <button type="button" class="btn btn-light">Sort by A-Z</button>
+        <button type="button" @click.prevent="sortByPrice" class="btn btn-light">Sort by Price</button>
    </div>
    <SpinnerComponent v-if="isLoading"/>
-   <div class="container">
+   <div class="container" v-else>
     <div class="row" style="gap: 10rem; justify-content: center;" >
     <div class="card" v-for="product in products" :key="product.productID"  style="width: 18rem;">
         <img :src="product.productImg" class="card-img-top mt-2">
@@ -50,23 +48,28 @@ export default {
     FooterComponent,
     SpinnerComponent
 },
-data(){
-          return {
-            isLoading: true
-          }
-        },
-        created(){
-          setTimeout(()=> {
-            this.isLoading = false;
-          }, 2000);
-        },
-        setup() {
-          const store = useStore()
-          store.dispatch("getProducts")
-          const products = computed(() => store.state.products)
-          return {
-            products
-          }
+methods: {
+  sortByPrice() {
+    this.$store.commit("setSortPrice")
+  }
+},
+    data(){
+      return {
+        isLoading: true
+      }
+    },
+    created(){
+      setTimeout(()=> {
+        this.isLoading = false;
+      }, 2000);
+    },
+    setup() {
+      const store = useStore()
+      store.dispatch("getProducts")
+      const products = computed(() => store.state.products)
+      return {
+        products
+      }
   },
 }
 </script>

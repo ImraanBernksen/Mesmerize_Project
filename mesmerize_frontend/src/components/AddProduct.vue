@@ -1,8 +1,8 @@
 <template>
-    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
+    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#addProduct">Add Product</button>
     
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">

@@ -5,7 +5,9 @@
     <h4 class="text-center">Users</h4>
   <SpinnerComponent v-if="isLoading"/>
   <div class="container-fluid table-responsive" v-else>
+    <div class="add">
     <AddUser/>
+    </div>
       <!-- Users table -->
       <table class="table table-hover table-light table-borderless" >
     <thead>
@@ -41,7 +43,9 @@
 <h4 class="text-center">Products</h4>
 <SpinnerComponent v-if="isLoading"/>
 <div class="container-fluid table-responsive" v-else>
-  <AddProduct/>
+  <div class="add">
+    <AddProduct/>
+  </div>
   <table class="table table-hover table-light table-borderless" >
     <thead>
         <tr class="text-center" >
@@ -123,6 +127,10 @@ data(){
 }
 </script>
 <style scoped>
+.add {
+  padding: 15px;
+}
+
 img {
     width: 20vh;
     height: auto;

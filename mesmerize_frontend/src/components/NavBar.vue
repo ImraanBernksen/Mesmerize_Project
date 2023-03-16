@@ -5,7 +5,8 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
+          <a href="/"><img style="height: 2rem;" class="img-fluid" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png"></a>
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/">HOME</a>
             </li>
@@ -22,7 +23,6 @@
               <a class="nav-link" href="/admin">ADMIN</a>
             </li>
           </ul>
-          <img style="height: 2rem; padding-right: 45px" class="img-fluid" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/signup">SIGNUP</a>
