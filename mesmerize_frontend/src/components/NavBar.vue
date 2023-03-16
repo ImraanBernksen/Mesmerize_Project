@@ -64,6 +64,10 @@ a {
   color: black;
 }
 
+.nav-link:hover{
+  color: blue;
+}
+
 nav {
   position: fixed;
   width: 100vw;

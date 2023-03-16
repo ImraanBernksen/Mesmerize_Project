@@ -39,8 +39,8 @@
           </div>
         </div>
         <br>
-        <button class="btn btn-outline-light"><a id="links" href="/product">View All</a></button>
       </div>
+      <button class="btn btn-outline-light"><a id="links" href="/product">View All</a></button>
       <FooterComponent/>
     </div>
 </template>
@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  padding: 20px;
+}
+
 #links {
   text-decoration: none;
 }
