@@ -11,8 +11,9 @@
             <label class="form-label" for="form2Example2">Password</label>
             <input type="password" v-model="payload.userPassword" placeholder="*****" id="form2Example2" class="form-control" required />
           </div>
+          <br>
           <div class="form-outline mb-4">
-            <p class="lead">{{message}}</p>
+            <p class="lead text-white">{{message}}</p>
           </div>
           <button type="submit" class="btn btn-outline-light btn-block mb-4" @click.prevent="login">SIGN IN</button>
           <div class="text-center">

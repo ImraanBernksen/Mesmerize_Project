@@ -22,7 +22,7 @@
               <a class="nav-link" href="/admin">ADMIN</a>
             </li>
           </ul>
-          <img style="height: 2rem; padding-right: 45px" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png">
+          <img style="height: 2rem; padding-right: 45px" class="img-fluid" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/signup">SIGNUP</a>
@@ -31,10 +31,7 @@
               <a class="nav-link" href="/login">LOGIN</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/myaccount"><i class="fa-solid fa-user"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/checkout"><i class="fa-solid fa-cart-shopping"></i></a>
+              <a class="nav-link" href="/myAccount">MY ACCOUNT</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/checkout">CHECKOUT</a>

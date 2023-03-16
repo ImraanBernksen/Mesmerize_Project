@@ -5,6 +5,7 @@
     <h4 class="text-center">Users</h4>
   <SpinnerComponent v-if="isLoading"/>
   <div class="container-fluid table-responsive" v-else>
+    <AddUser/>
       <!-- Users table -->
       <table class="table table-hover table-light table-borderless" >
     <thead>
@@ -40,6 +41,7 @@
 <h4 class="text-center">Products</h4>
 <SpinnerComponent v-if="isLoading"/>
 <div class="container-fluid table-responsive" v-else>
+  <AddProduct/>
   <table class="table table-hover table-light table-borderless" >
     <thead>
         <tr class="text-center" >
@@ -79,8 +81,10 @@ import { computed } from '@vue/runtime-core'
 import NavBar from '../components/NavBar.vue';
 import FooterComponent from '../components/FooterComponent.vue';
 import SpinnerComponent from '@/components/SpinnerComponent.vue';
+import AddUser from '@/components/AddUser.vue';
 import UpdateUser from '@/components/UpdateUser.vue';
 import DeleteUser from '@/components/DeleteUser.vue';
+import AddProduct from '@/components/AddProduct.vue';
 import UpdateProduct from '@/components/UpdateProduct.vue';
 import DeleteProduct from '@/components/DeleteProduct.vue';
 export default {
@@ -88,8 +92,10 @@ export default {
     NavBar,
     FooterComponent,
     SpinnerComponent,
+    AddUser,
     UpdateUser,
     DeleteUser,
+    AddProduct,
     UpdateProduct,
     DeleteProduct
 },
