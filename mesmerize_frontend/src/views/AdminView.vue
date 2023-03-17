@@ -33,7 +33,7 @@
         <td><img :src="user.userImg" class="img-fluid"></td>
         <td>{{ user.joinDate }}</td>
         <td><UpdateUser/></td>
-        <td><DeleteUser/></td>
+        <td>...</td>
       </tr>
     </tbody>
   </table><br>
@@ -70,7 +70,7 @@
             <td><img :src="product.productImg" class="img-fluid"></td>
             <td>{{ product.quantity }}</td>
             <td><UpdateProduct/></td>
-            <td><DeleteProduct/></td>
+            <td>...</td>
         </tr>
     </tbody>
 </table>
@@ -87,10 +87,8 @@ import FooterComponent from '../components/FooterComponent.vue';
 import SpinnerComponent from '@/components/SpinnerComponent.vue';
 import AddUser from '@/components/AddUser.vue';
 import UpdateUser from '@/components/UpdateUser.vue';
-import DeleteUser from '@/components/DeleteUser.vue';
 import AddProduct from '@/components/AddProduct.vue';
 import UpdateProduct from '@/components/UpdateProduct.vue';
-import DeleteProduct from '@/components/DeleteProduct.vue';
 export default {
   components: {
     NavBar,
@@ -98,10 +96,8 @@ export default {
     SpinnerComponent,
     AddUser,
     UpdateUser,
-    DeleteUser,
     AddProduct,
     UpdateProduct,
-    DeleteProduct
 },
 data(){
           return {

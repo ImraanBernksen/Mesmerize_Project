@@ -1,32 +1,32 @@
 <template>
-    <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+    <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editUsers"><i class="fa-solid fa-pen-to-square"></i></button>
     
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editUsers" tabindex="-1" aria-labelledby="editUsers" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Users</h1>
+            <h1 class="modal-title fs-5" id="editUsers">Edit Users</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="form-outline mb-4">
-                <input type="text" id="form3Example2" placeholder="Name" class="form-control" />
+                <input type="text" placeholder="Name" class="form-control" />
             </div>
             <div class="form-outline mb-4">
-                <input type="text" id="form3Example2" placeholder="Surname" class="form-control" />
+                <input type="text" placeholder="Surname" class="form-control" />
             </div>
             <div class="form-outline mb-4">
-                <input type="email" id="form3Example2" placeholder="Email" class="form-control" />
+                <input type="email" placeholder="Email" class="form-control" />
             </div>
             <div class="form-outline mb-4">
-                <input type="password" id="form3Example2" placeholder="Password" class="form-control" />
+                <input type="password" placeholder="Password" class="form-control" />
             </div>
             <div class="form-outline mb-4">
-                <input type="text" id="form3Example2" placeholder="Image" class="form-control" />
+                <input type="text" placeholder="Image" class="form-control" />
             </div>
             <div class="form-outline mb-4">
-                <input type="date" id="form3Example2" placeholder="Date" class="form-control" />
+                <input type="date" placeholder="Date" class="form-control" />
             </div>
         </div>
         <div class="modal-footer">

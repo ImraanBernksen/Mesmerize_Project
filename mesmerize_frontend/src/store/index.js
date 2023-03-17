@@ -53,6 +53,7 @@ export default createStore({
     }
   },
   actions: {
+    /** Users **/
     async getUsers(context) {
       const res = await axios.get(`${mesmerizeAPI}Users`);
       let { results, err} = await res.data;
@@ -62,6 +63,7 @@ export default createStore({
         context.commit('setMessage', err)
       }
     },
+    /** Products **/
     async getProducts(context) {
       const res = await axios.get(`${mesmerizeAPI}Products`);
       let { results, err} = await res.data;
@@ -83,6 +85,38 @@ export default createStore({
         context.commit('setSpinner', true);
       }
     },
+    async addProduct(context, payload) {
+      try {
+        const res = await axios.post(`${mesmerizeAPI}product`, payload);
+        console.log('Response:' , res);
+        let { result, msg, err } = await res.data;
+        if (result) {
+          context.commit('theProduct', result);
+          context.commit ('setMessage', msg);
+        }else {
+          context.commit('setMessage', err)
+        }
+      } catch (error) {
+        console.error(error) 
+      }
+    },
+    /** Register **/
+    async registerUser(context, payload) {
+      try {
+        const res = await axios.post(`${mesmerizeAPI}user`, payload);
+        console.log('Response:', res);
+        const { result, msg, err } = await res.data;
+        if (result) {
+          context.commit('theUser', result);
+          context.commit('setMessage', msg);
+        } else {
+          context.commit('setMessage', err)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    /** Login **/
     async login(context, payload) {
       try {
         const response = await axios.post(`${mesmerizeAPI}login`, payload);

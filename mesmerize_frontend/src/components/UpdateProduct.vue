@@ -1,32 +1,32 @@
 <template>
-<button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#updateProduct"><i class="fa-solid fa-pen-to-square"></i></button>
+<button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editProducts"><i class="fa-solid fa-pen-to-square"></i></button>
 
 <!-- Modal -->
-<div class="modal fade" id="updateProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editProducts" tabindex="-1" aria-labelledby="editProducts" aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Products</h1>
+        <h1 class="modal-title fs-5" id="editProducts">Edit Products</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
         <div class="form-outline mb-4">
-            <input type="text" id="form3Example2" placeholder="Name" class="form-control" />
+            <input type="text" placeholder="Name" class="form-control" />
         </div>
         <div class="form-outline mb-4">
-            <input type="text" id="form3Example2" placeholder="Description" class="form-control" />
+            <input type="text" placeholder="Description" class="form-control" />
         </div>
         <div class="form-outline mb-4">
-            <input type="text" id="form3Example2" placeholder="Category" class="form-control" />
+            <input type="text" placeholder="Category" class="form-control" />
         </div>
         <div class="form-outline mb-4">
-            <input type="text" id="form3Example2" placeholder="Price" class="form-control" />
+            <input type="text" placeholder="Price" class="form-control" />
         </div>
         <div class="form-outline mb-4">
-            <input type="text" id="form3Example2" placeholder="Image" class="form-control" />
+            <input type="text" placeholder="Image" class="form-control" />
         </div>
         <div class="form-outline mb-4">
-            <input type="text" id="form3Example2" placeholder="Quantity" class="form-control" />
+            <input type="text" placeholder="Quantity" class="form-control" />
         </div>
     </div>
     <div class="modal-footer">

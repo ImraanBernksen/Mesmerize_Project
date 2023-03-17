@@ -1,11 +1,13 @@
 <template>
   <NavBar/>
   <div class="background">
+    <div style="background-image: url(https://i.postimg.cc/Hk0R0hz7/don-sosa-9-Mn-RTW5-KBM-unsplash.jpg); height: 100vh">
       <h2>Home</h2>
-      <img class="img-fluid" id="logo" src="*">
       <br>
+      <p style="font-size: 100px;" class="title">M E S M E R I Z E</p>
       <br>
       <p class="slogan">Be mesmerized.</p>
+    </div>
       <h2>Preview</h2>
       <div class="container">
         <div class="row" style="gap: 5rem; justify-content: center;" >
@@ -84,13 +86,11 @@ img {
     box-shadow: 3px -3px 3px 3px black;
 }
 
-#logo {
-  width: auto;
-  height: 60vh;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60px;
+.title {
+  color: white;
+  text-shadow:  1.5px 1.5px 1.5px black;
+  text-align: center;
+  margin-top: 160px;
 }
 
 .slogan {

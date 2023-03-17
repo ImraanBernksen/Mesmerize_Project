@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <a href="/"><img style="height: 2rem;" class="img-fluid" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png"></a>
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto" id="navbar_middle">
             <li class="nav-item">
               <a class="nav-link" href="/">HOME</a>
             </li>
@@ -73,5 +73,10 @@ nav {
   width: 100vw;
   top: 0;
   z-index: 10;
+}
+
+#navbar_middle {
+  position: relative;
+  left: 95px;
 }
 </style>
