@@ -23,11 +23,15 @@ route.post('/login', bodyParser.json(), (req, res)=>{
     user.login(req, res);
 })
 
+route.get('/user/:id', bodyParser.json(), (req, res)=>{
+    user.fetchUser(req, res);
+})
+
 route.get('/users', (req, res)=>{
     user.fetchUsers(req, res);
 });
 
-route.post('/user', bodyParser.json(), (req, res)=> {
+route.post('/register', bodyParser.json(), (req, res)=> {
     user.createUser(req, res);
 })
 

@@ -119,7 +119,7 @@ class User {
         DELETE FROM Users
         WHERE userID = ?;
         `;
-        db.query(strQry, [re.params.id],
+        db.query(strQry, [req.params.id],
             (err) => {
                 if(err) throw err;
                 res.status(200).json( {msg:
