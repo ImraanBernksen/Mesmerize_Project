@@ -33,7 +33,7 @@
         <td><img :src="user.userImg" class="img-fluid"></td>
         <td>{{ user.joinDate }}</td>
         <td><UpdateUser/></td>
-        <td>...</td>
+        <td><button type="submit" @click="deleteUser(user.userID)" class="btn btn-outline-dark"><i class="fa-solid fa-trash"></i></button></td>
       </tr>
     </tbody>
   </table><br>
@@ -70,7 +70,7 @@
             <td><img :src="product.productImg" class="img-fluid"></td>
             <td>{{ product.quantity }}</td>
             <td><UpdateProduct/></td>
-            <td>...</td>
+            <td><button type="submit" @click="deleteProduct(product.productID)" class="btn btn-outline-dark"><i class="fa-solid fa-trash"></i></button></td>
         </tr>
     </tbody>
 </table>
@@ -119,7 +119,15 @@ data(){
             products,
             users
         }
-      }
+      },
+methods: {
+    deleteUser(id) {
+      this.$store.dispatch('deleteUser', id);
+    },
+    deleteProduct(id) {
+      this.$store.dispatch('deleteProduct', id);
+    }
+},
 }
 </script>
 <style scoped>

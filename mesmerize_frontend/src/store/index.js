@@ -63,6 +63,15 @@ export default createStore({
         context.commit('setMessage', err)
       }
     },
+    async deleteUser({ commit, dispatch }, id) {
+      try {
+        await axios.delete(`${mesmerizeAPI}User/${id}`);
+        commit('setMessage', 'User deleted successfully');
+        dispatch('getUsers');
+      } catch (error) {
+        commit('setMessage', 'Failed to delete user');
+      }
+    },
     /** Products **/
     async getProducts(context) {
       const res = await axios.get(`${mesmerizeAPI}Products`);
@@ -98,6 +107,15 @@ export default createStore({
         }
       } catch (error) {
         console.error(error) 
+      }
+    },
+    async deleteProduct({ commit, dispatch }, id) {
+      try {
+        await axios.delete(`${mesmerizeAPI}Product/${id}`);
+        commit('setMessage', 'Product deleted successfully');
+        dispatch('getProducts');
+      } catch (error) {
+        commit('setMessage', 'Failed to delete product');
       }
     },
     /** Register **/
