@@ -99,7 +99,7 @@ export default {
     AddProduct,
     UpdateProduct,
 },
-data(){
+        data(){
         return {
           isLoading: true
           }
