@@ -1,10 +1,10 @@
 <template>
   <NavBar/>
   <div class="background">
-    <div style="background-image: url(https://i.postimg.cc/Hk0R0hz7/don-sosa-9-Mn-RTW5-KBM-unsplash.jpg); height: 100vh">
+    <div class="homeImg img-fluid">
       <h2>Home</h2>
       <br>
-      <p style="font-size: 100px;" class="title">M E S M E R I Z E</p>
+      <p class="title">M E S M E R I Z E</p>
       <br>
       <p class="slogan">Be mesmerized.</p>
     </div>
@@ -18,21 +18,21 @@
                 <p class="card-text">R450</p>
             </div>
         </div>
-        <div class="card" style="width: 16rem;">
+        <div class="card">
           <img src="https://i.postimg.cc/sDMLwRGm/sweatshirt-3.webp" class="card-img-top mt-2">
           <div class="card-body text-center text-dark">
               <h5 class="card-title">Dragon Ball Anime Sweatshirt</h5>
               <p class="card-text">R282</p>
           </div>
         </div>
-        <div class="card" style="width: 16rem;">
+        <div class="card">
         <img src="https://i.postimg.cc/T144ftFn/t-shirt-2.webp" class="card-img-top mt-2">
         <div class="card-body text-center text-dark">
             <h5 class="card-title">Hunter X Hunter Anime T-Shirt</h5>
             <p class="card-text">R211</p>
         </div>
         </div>
-        <div class="card" style="width: 16rem;">
+        <div class="card">
           <img src="https://i.postimg.cc/GthWc82n/sweatpants-3.webp" class="card-img-top mt-2">
           <div class="card-body text-center text-dark">
               <h5 class="card-title">Mob Psycho Anime Sweatpants</h5>
@@ -63,6 +63,11 @@ export default {
   padding: 20px;
 }
 
+.homeImg {
+  background-image: url(https://i.postimg.cc/Hk0R0hz7/don-sosa-9-Mn-RTW5-KBM-unsplash.jpg);
+  height: 100vh
+}
+
 #links {
   text-decoration: none;
 }
@@ -75,15 +80,16 @@ export default {
 }
 
 img {
-    border-radius: 8px;
+  border-radius: 8px;
 }
-.card { 
-    border-radius: 20px;
-    box-shadow: 3px -3px 3px 3px white;
+.card {
+  width: 16rem;
+  border-radius: 20px;
+  box-shadow: 3px -3px 3px 3px white;
 }
 .card:hover {
-    border-radius: 20px;
-    box-shadow: 3px -3px 3px 3px black;
+  border-radius: 20px;
+  box-shadow: 3px -3px 3px 3px black;
 }
 
 .title {
@@ -91,6 +97,7 @@ img {
   text-shadow:  1.5px 1.5px 1.5px black;
   text-align: center;
   margin-top: 160px;
+  font-size: 100px;
 }
 
 .slogan {
@@ -115,4 +122,10 @@ img {
     color: white;
   }
 }
+
+@media screen and (max-width: 300px) {
+  .title{
+    font-size: 45px !important;
+  }
+};
 </style>

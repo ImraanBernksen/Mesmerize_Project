@@ -3,20 +3,17 @@
   <div class="background">
     <h2>Shop</h2>
     <div class="shop">
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Hoodies</a></li>
-            <li><a class="dropdown-item" href="#">T-Shirts</a></li>
-            <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
-            <li><a class="dropdown-item" href="#">Sweatpants</a></li>
-          </ul>
-        </div>
-        <div class="input-group" style="width: 20%;">
+      <select class="btn btn-light" required v-model="category">
+        <option value="" selected>All categories</option>
+        <option value="Hoodies">Hoodies</option>
+        <option value="Sweatshirts">Sweatshirts</option>
+        <option value="T-Shirts">T-Shirts</option>
+        <option value="Sweatpants">Sweatpants</option>
+      </select>
+        <div class="input-group" style="width: 15%;">
           <input type="search" v-model="searchingCategory" class="form-control rounded" placeholder="Search category" aria-label="Search" aria-describedby="search-addon" />
-          <button type="button" class="btn btn-outline-light">search</button>
         </div>
-        <button type="button" @click.prevent="sortByPrice" class="btn btn-light">Sort by Price</button>
+        <button type="button" @click.prevent="sortByPrice" class="btn btn-light">Sort by price</button>
    </div>
    <SpinnerComponent v-if="isLoading"/>
    <div class="container" v-else>
@@ -56,7 +53,8 @@ methods: {
     data(){
       return {
         isLoading: true,
-        searchingCategory: ''
+        searchingCategory: '',
+        category: '',
       }
     },
     created(){
@@ -74,10 +72,11 @@ methods: {
   },
   computed: {
     search() {
+      let filteredByCategory = this.products.filter(item => item.category == this.category || this.category == '')
       if (this.searchingCategory.trim().length > 0) {
-        return this.products.filter((input) => input.category.toLowerCase().includes(this.searchingCategory.trim().toLowerCase()))
+        return filteredByCategory.filter((input) => input.category.toLowerCase().includes(this.searchingCategory.trim().toLowerCase()))
       }
-      return this.products
+      return filteredByCategory
     }
   }
 }

@@ -3,9 +3,9 @@
         <br>
         <div class="line"></div>
         <br>
-        <div class="container">
+        <div class="container text-center">
             <div class="row">
-            <div class="col-sm-4 text-start" style="display:grid; justify-content:center;">
+            <div class="col-sm-5 text-start">
             <h6 class="lead" style="color: white;">Address</h6>
             <p style="color: white;">314 Imam Haron Rd, Lansdowne, Cape Town, 7780</p>
             <h6 class="lead" style="color: white;">Contact Us</h6>
@@ -13,7 +13,7 @@
             <h6 class="lead" style="color: white;">Email Us</h6>
             <p style="color: white;">info@mesmerize.com</p>
             </div>
-            <div class="col-sm-4 text-start" style="display:grid; justify-content:center;">
+            <div class="col-sm-5 text-start">
             <h6 class="lead" style="color: white;">Quick Links</h6>
             <a class="quick" href="/">Home</a>
             <a class="quick" href="/about">About</a>
@@ -24,7 +24,7 @@
             <a class="quick" href="/myaccount">MyAccount</a>
             <a class="quick" href="/checkout">Checkout</a>
             </div>
-            <div class="col-sm-4 text-start lead" style="display:grid; justify-content:center;">
+            <div class="col-sm-2 text-start lead">
             <h6 class="lead" style="color: white;">Follow Mesmerize</h6>
             <a id="socials" target="_blank" href="https://www.instagram.com/instagram/" class="fa-brands fa-instagram text-white"></a>
             <a id="socials" target="_blank" href="https://www.facebook.com/facebook/" class="fa-brands fa-facebook text-white"></a>

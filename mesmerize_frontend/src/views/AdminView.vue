@@ -16,7 +16,6 @@
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email Address</th>
-        <th scope="col">Password</th>
         <th scope="col">Profile</th>
         <th scope="col">Date Joined</th>
         <th scope="col">Edit</th>
@@ -29,7 +28,6 @@
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.userEmail }}</td>
-        <td>{{ user.userPassword }}</td>
         <td><img :src="user.userImg" class="img-fluid"></td>
         <td>{{ user.joinDate }}</td>
         <td><UpdateUser/></td>
