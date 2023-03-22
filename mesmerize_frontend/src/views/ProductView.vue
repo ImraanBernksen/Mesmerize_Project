@@ -13,7 +13,7 @@
           </ul>
         </div>
         <div class="input-group" style="width: 20%;">
-          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <input type="search" v-model="searchingCategory" class="form-control rounded" placeholder="Search category" aria-label="Search" aria-describedby="search-addon" />
           <button type="button" class="btn btn-outline-light">search</button>
         </div>
         <button type="button" @click.prevent="sortByPrice" class="btn btn-light">Sort by Price</button>
@@ -21,7 +21,7 @@
    <SpinnerComponent v-if="isLoading"/>
    <div class="container" v-else>
     <div class="row" style="gap: 10rem; justify-content: center;" >
-    <div class="card" v-for="product in products" :key="product.productID"  style="width: 18rem;">
+    <div class="card" v-for="product in search" :key="product.productID"  style="width: 18rem;">
         <img :src="product.productImg" class="card-img-top mt-2">
         <div class="card-body text-center text-dark">
             <h5 class="card-title">{{ product.productName }}</h5>
@@ -55,7 +55,8 @@ methods: {
 },
     data(){
       return {
-        isLoading: true
+        isLoading: true,
+        searchingCategory: ''
       }
     },
     created(){
@@ -71,6 +72,14 @@ methods: {
         products
       }
   },
+  computed: {
+    search() {
+      if (this.searchingCategory.trim().length > 0) {
+        return this.products.filter((input) => input.category.toLowerCase().includes(this.searchingCategory.trim().toLowerCase()))
+      }
+      return this.products
+    }
+  }
 }
 </script>
 <style scoped>

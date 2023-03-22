@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
-import Cookies from 'js-cookie';
+import {useCookies} from 'vue3-cookies';
+const { cookies } = useCookies();
 const mesmerizeAPI = "https://mesmerize-backend.onrender.com/"
 
 export default createStore({
@@ -109,6 +110,7 @@ export default createStore({
         console.error(error) 
       }
     },
+    
     async deleteProduct({ commit, dispatch }, id) {
       try {
         await axios.delete(`${mesmerizeAPI}Product/${id}`);
@@ -121,7 +123,7 @@ export default createStore({
     /** Register **/
     async registerUser(context, payload) {
       try {
-        const res = await axios.post(`${mesmerizeAPI}user`, payload);
+        const res = await axios.post(`${mesmerizeAPI}register`, payload);
         console.log('Response:', res);
         const { result, msg, err } = await res.data;
         if (result) {
@@ -143,7 +145,7 @@ export default createStore({
         if (result) {
           context.commit('theUser', result);
           context.commit('theToken', jwToken);
-          Cookies.set('app_cookie', jwToken)
+          cookies.set('app_cookie', jwToken)
           context.commit('setMessage', msg);
         } else {
           context.commit('setMessage', err);

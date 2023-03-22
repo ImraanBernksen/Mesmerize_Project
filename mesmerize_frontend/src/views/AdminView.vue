@@ -100,8 +100,8 @@ export default {
     UpdateProduct,
 },
 data(){
-          return {
-            isLoading: true
+        return {
+          isLoading: true
           }
         },
         created(){
