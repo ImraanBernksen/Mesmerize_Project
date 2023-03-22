@@ -27,6 +27,9 @@
                     <input type="text" v-model="payload.userImg" class="form-control" />
                 </div>
                 <div class="form-outline mb-4">
+                    <input type="text" v-model="payload.userRole" placeholder="Role" class="form-control" />
+                </div>
+                <div class="form-outline mb-4">
                     <input type="date" v-model="payload.joinDate" class="form-control" />
                 </div>
                 <div class="modal-footer">
@@ -51,6 +54,7 @@
                     userEmail: '',
                     userPassword: '',
                     userImg: 'https://i.postimg.cc/gk1Rx1wb/Default-User-Profile.jpg',
+                    userRole: '',
                     joinDate: ''
                 }
             }

@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 import axios from 'axios';
 import {useCookies} from 'vue3-cookies';
 const { cookies } = useCookies();
-const mesmerizeAPI = "https://mesmerize-backend.onrender.com/"
+const mesmerizeAPI = "https://mesmerize-backend.onrender.com/";
+import router from '@/router';
 
 export default createStore({
   state: {
@@ -73,6 +74,49 @@ export default createStore({
         commit('setMessage', 'Failed to delete user');
       }
     },
+    /** Register **/
+    async registerUser(context, payload) {
+      try {
+        const res = await axios.post(`${mesmerizeAPI}register`, payload);
+        console.log('Response:', res);
+        const { result, msg, err } = await res.data;
+        if (result) {
+          context.commit('theUser', result);
+          context.commit('setMessage', msg);
+        } else {
+          context.commit('setMessage', err)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    /** Login **/
+    async login(context, payload) {
+      try {
+        const response = await axios.post(`${mesmerizeAPI}login`, payload);
+        console.log('Response' , response);
+        const {result, jwToken, msg, err} = await response.data
+        if (result) {
+          context.commit('theUser', result);
+          context.commit('theToken', jwToken);
+          cookies.set('app_cookie', jwToken)
+          context.commit('setMessage', msg);
+          setTimeout(()=> {
+            router.push({name: 'home'})
+          }), 3000
+        } else {
+          context.commit('setMessage', err);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    /** Logout **/
+    logout({ commit }) {
+      localStorage.removeItem('token');
+      commit('theUser', null);
+      commit('setIsLoggedIn', false);
+    },
     /** Products **/
     async getProducts(context) {
       const res = await axios.get(`${mesmerizeAPI}Products`);
@@ -110,7 +154,6 @@ export default createStore({
         console.error(error) 
       }
     },
-    
     async deleteProduct({ commit, dispatch }, id) {
       try {
         await axios.delete(`${mesmerizeAPI}Product/${id}`);
@@ -119,45 +162,6 @@ export default createStore({
       } catch (error) {
         commit('setMessage', 'Failed to delete product');
       }
-    },
-    /** Register **/
-    async registerUser(context, payload) {
-      try {
-        const res = await axios.post(`${mesmerizeAPI}register`, payload);
-        console.log('Response:', res);
-        const { result, msg, err } = await res.data;
-        if (result) {
-          context.commit('theUser', result);
-          context.commit('setMessage', msg);
-        } else {
-          context.commit('setMessage', err)
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    /** Login **/
-    async login(context, payload) {
-      try {
-        const response = await axios.post(`${mesmerizeAPI}login`, payload);
-        console.log('Response' , response);
-        const {result, jwToken, msg, err} = await response.data
-        if (result) {
-          context.commit('theUser', result);
-          context.commit('theToken', jwToken);
-          cookies.set('app_cookie', jwToken)
-          context.commit('setMessage', msg);
-        } else {
-          context.commit('setMessage', err);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    logout({ commit }) {
-      localStorage.removeItem('token');
-      commit('theUser', null);
-      commit('setIsLoggedIn', false);
     }
   },
   modules: {

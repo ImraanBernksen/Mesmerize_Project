@@ -26,6 +26,9 @@
                 <input type="text" placeholder="Image" class="form-control" />
             </div>
             <div class="form-outline mb-4">
+                <input type="text" placeholder="Role" class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
                 <input type="date" placeholder="Date" class="form-control" />
             </div>
         </div>

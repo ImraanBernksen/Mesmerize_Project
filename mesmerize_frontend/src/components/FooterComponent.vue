@@ -70,4 +70,8 @@ footer {
     justify-content: center;
     margin: auto;
 }
+
+a:hover {
+    color: blue;
+  }
 </style>

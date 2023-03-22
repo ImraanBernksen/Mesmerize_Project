@@ -17,6 +17,7 @@
         <th scope="col">Last Name</th>
         <th scope="col">Email Address</th>
         <th scope="col">Profile</th>
+        <th scope="col">Role</th>
         <th scope="col">Date Joined</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
@@ -29,6 +30,7 @@
         <td>{{ user.lastName }}</td>
         <td>{{ user.userEmail }}</td>
         <td><img :src="user.userImg" class="img-fluid"></td>
+        <td>{{ user.userRole }}</td>
         <td>{{ user.joinDate }}</td>
         <td><UpdateUser/></td>
         <td><button type="submit" @click="deleteUser(user.userID)" class="btn btn-outline-dark"><i class="fa-solid fa-trash"></i></button></td>

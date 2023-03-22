@@ -100,6 +100,10 @@ img {
   font-size: 100px;
 }
 
+a:hover {
+  color: black;
+}
+
 .slogan {
   color: white;
   text-shadow:  1.5px 1.5px 1.5px black;

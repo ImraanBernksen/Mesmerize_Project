@@ -3,7 +3,7 @@
   <div class="background">
     <h2>Shop</h2>
     <div class="shop">
-      <select class="btn btn-light" required v-model="category">
+      <select class="btn btn-light text-start" required v-model="category">
         <option value="" selected>All categories</option>
         <option value="Hoodies">Hoodies</option>
         <option value="Sweatshirts">Sweatshirts</option>
