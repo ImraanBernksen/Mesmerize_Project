@@ -11,7 +11,7 @@
         <option value="Sweatpants">Sweatpants</option>
       </select>
         <div class="input-group" style="width: 15%;">
-          <input type="search" v-model="searchingCategory" class="form-control rounded" placeholder="Search category" aria-label="Search" aria-describedby="search-addon" />
+          <input type="search" v-model="searchByName" class="form-control rounded" placeholder="Search name" aria-label="Search" aria-describedby="search-addon" />
         </div>
         <button type="button" @click.prevent="sortByPrice" class="btn btn-light">Sort by price</button>
    </div>
@@ -53,7 +53,7 @@ methods: {
     data(){
       return {
         isLoading: true,
-        searchingCategory: '',
+        searchByName: '',
         category: '',
       }
     },
@@ -73,8 +73,8 @@ methods: {
   computed: {
     search() {
       let filteredByCategory = this.products.filter(item => item.category == this.category || this.category == '')
-      if (this.searchingCategory.trim().length > 0) {
-        return filteredByCategory.filter((input) => input.category.toLowerCase().includes(this.searchingCategory.trim().toLowerCase()))
+      if (this.searchByName.trim().length > 0) {
+        return filteredByCategory.filter((input) => input.productName.toLowerCase().includes(this.searchByName.trim().toLowerCase()))
       }
       return filteredByCategory
     }
