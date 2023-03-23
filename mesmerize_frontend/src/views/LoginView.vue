@@ -56,5 +56,5 @@ methods: {
 }
 </script>
 <style>
-    
+
 </style>

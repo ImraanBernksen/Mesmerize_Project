@@ -11,6 +11,13 @@
   box-sizing: border-box;
 }
 
+.cartButton {
+  position:absolute;
+  right:0;
+  padding-top: 20px;
+  padding-right: 35px;
+}
+
 .background {
   background-color: black;
   margin-top: 55px;

@@ -1,14 +1,15 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
 import router from '@/router';
-import {useCookies} from 'vue3-cookies';
-const { cookies } = useCookies();
+// import {useCookies} from 'vue3-cookies';
+// const { cookies } = useCookies();
 const mesmerizeAPI = "https://mesmerize-backend.onrender.com/";
 
 export default createStore({
   state: {
-    user: null,
+    user: null || JSON.parse(localStorage.getItem('user')),
     users: null,
+    userAuth: null,
     product: null,
     products: null,
     cart: null,
@@ -21,8 +22,10 @@ export default createStore({
   getters: {
   },
   mutations: {
-    theUser(state, value) {
-      state.user = value
+    theUser(state, user) {
+      state.user = user,
+      state.userAuth = true,
+      localStorage.setItem('user', JSON.stringify(user));
     },
     theUsers(state, values) {
       state.users = values
@@ -61,10 +64,19 @@ export default createStore({
   actions: {
     /** User **/
     async getUsers(context) {
-      const res = await axios.get(`${mesmerizeAPI}Users`);
+      const res = await axios.get(`${mesmerizeAPI}users`);
       let { results, err} = await res.data;
       if(results) {
         context.commit('theUsers', results)
+      }else {
+        context.commit('setMessage', err)
+      }
+    },
+    async getUser(context, id) {
+      const res = await axios.get(`${mesmerizeAPI}users/${id}`);
+      let { results, err} = await res.data;
+      if(results) {
+        context.commit('theUser', results)
       }else {
         context.commit('setMessage', err)
       }
@@ -103,10 +115,12 @@ export default createStore({
         if (result) {
           context.commit('theUser', result);
           context.commit('theToken', jwToken);
-          cookies.set('app_cookie', jwToken)
+          localStorage.setItem('login_token', jwToken);
+          localStorage.setItem('user', JSON.stringify(result));
+          // cookies.set('app_cookie', jwToken)
           context.commit('setMessage', msg);
           setTimeout(()=> {
-            router.push({name: 'home'})
+            router.push({name: 'product'})
           }), 3000
         } else {
           context.commit('setMessage', err);

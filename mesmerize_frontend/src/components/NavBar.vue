@@ -20,7 +20,7 @@
               <a class="nav-link" href="/contact">CONTACT</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin">ADMIN</a>
+              <a class="nav-link" href="/admin" v-if="this.$store.state.userAuth">ADMIN</a>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">

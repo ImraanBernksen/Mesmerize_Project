@@ -1,6 +1,9 @@
 <template>
   <NavBar />
   <div class="background">
+    <div class="cartButton">
+      <TheCart/>
+    </div>
     <h2>Shop</h2>
     <div class="shop">
       <select class="btn btn-light text-start" required v-model="category">
@@ -24,7 +27,7 @@
             <h5 class="card-title">{{ product.productName }}</h5>
             <p class="card-text">{{ product.productDescription }}</p>
             <p class="card-text">Price: R{{ product.productPrice }}</p>
-            <router-link :to="{name: 'singleProduct' , params: {id: product.productID}}"><button class="btn btn-outline-dark">View</button></router-link>
+            <router-link :to="{name: 'singleProduct' , params: {id: product.productID}}"><button class="btn btn-outline-dark" v-if="this.$store.state.userAuth">View</button></router-link>
         </div>
     </div>
     </div>
@@ -36,6 +39,7 @@
 import NavBar from '../components/NavBar.vue';
 import FooterComponent from '../components/FooterComponent.vue';
 import SpinnerComponent from '@/components/SpinnerComponent.vue';
+import TheCart from '@/components/TheCart.vue';
 import { useStore } from 'vuex';
 import { computed } from '@vue/runtime-core'
 
@@ -43,7 +47,8 @@ export default {
   components: {
     NavBar,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    TheCart
 },
 methods: {
   sortByPrice() {

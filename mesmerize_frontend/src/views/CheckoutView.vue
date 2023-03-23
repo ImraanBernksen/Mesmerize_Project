@@ -20,12 +20,6 @@ export default {
 }
 }
 </script>
-<style scoped>
-.cartButton {
-  position:absolute;
-  right:0;
-  padding-top: 20px;
-  padding-right: 35px;
-}
+<style>
     
 </style>
