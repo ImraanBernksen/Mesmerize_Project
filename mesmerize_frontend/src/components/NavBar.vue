@@ -30,6 +30,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/login">LOGIN</a>
             </li>
+            <router-link :to="{name: 'logout'}"><li><button class="btn btn-outline-dark">Logout</button></li></router-link>
             <li class="nav-item">
               <a class="nav-link" href="/myAccount">MY ACCOUNT</a>
             </li>

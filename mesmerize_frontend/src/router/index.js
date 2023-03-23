@@ -64,6 +64,16 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
   },
   {
+    path: '/logout',
+    name: 'logout',
+    beforeEnter() {
+      router.push({name: 'login'})
+      localStorage.removeItem('login_token')
+      localStorage.removeItem('user')
+      window.location.reload()
+    }
+  },
+  {
     path: '/myAccount',
     name: 'myAccount',
     // route level code-splitting

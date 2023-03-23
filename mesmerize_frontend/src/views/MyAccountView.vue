@@ -2,12 +2,12 @@
     <NavBar/>
     <div class="background">
         <h2>My Account</h2>
-        <img class="img-fluid" :src="$store.state.user.userImg">
+        <img class="img-fluid" :src="$store.state.user?.userImg">
         <div class="profile">
-        <h4>Welcome, {{ $store.state.user.firstName }} {{ $store.state.user.lastName }}</h4>
-        <h4>{{ $store.state.user.userEmail }}</h4>
-        <h4>{{ $store.state.user.userRole }}</h4>
-        <h4>{{ $store.state.user.joinDate }}</h4>
+        <h4>Welcome, {{ $store.state.user?.firstName }} {{ $store.state.user?.lastName }}</h4>
+        <h4>{{ $store.state.user?.userEmail }}</h4>
+        <h4>{{ $store.state.user?.userRole }}</h4>
+        <h4>{{ $store.state.user?.joinDate }}</h4>
       </div>
         <FooterComponent/>
     </div>
