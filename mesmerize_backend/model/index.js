@@ -250,6 +250,17 @@ class Cart {
             }
         );
     }
+    deleteCarts(req, res) {
+        const strQry =
+        `
+        DELETE FROM Cart
+        WHERE cartID = ?;
+        `;
+        db.query(strQry, [req.params.id], (err) => {
+            if (err) res.status(400).json({err: "THE RECORD WAS NOT FOUND."});
+            res.status(200).json({msg: "CARTS WAS CLEARED."});
+        })
+    }
     deleteCart(req, res) {
         const strQry =
         `
@@ -261,6 +272,7 @@ class Cart {
             res.status(200).json({msg: "A CART WAS DELETED."});
         })
     }
+
 }
 
 

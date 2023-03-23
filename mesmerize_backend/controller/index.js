@@ -89,6 +89,11 @@ bodyParser.json(),
 
 route.delete('/user/:id/cart', 
 (req, res)=> {
+    cart.deleteCarts(req, res);
+})
+
+route.delete('/user/:id/cart/:id', 
+(req, res)=> {
     cart.deleteCart(req, res);
 })
 
