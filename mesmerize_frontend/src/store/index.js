@@ -1,9 +1,9 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
+import router from '@/router';
 import {useCookies} from 'vue3-cookies';
 const { cookies } = useCookies();
 const mesmerizeAPI = "https://mesmerize-backend.onrender.com/";
-import router from '@/router';
 
 export default createStore({
   state: {
@@ -11,6 +11,7 @@ export default createStore({
     users: null,
     product: null,
     products: null,
+    cart: null,
     token: null,
     theSpinner: null,
     asc: true,
@@ -31,6 +32,9 @@ export default createStore({
     },
     theProducts(state, values){
       state.products = values
+    },
+    theCart(state, value) {
+      state.cart = value
     },
     theToken(state, value) {
       state.token = value
@@ -55,7 +59,7 @@ export default createStore({
     }
   },
   actions: {
-    /** Users **/
+    /** User **/
     async getUsers(context) {
       const res = await axios.get(`${mesmerizeAPI}Users`);
       let { results, err} = await res.data;
@@ -117,7 +121,7 @@ export default createStore({
       commit('theUser', null);
       commit('setIsLoggedIn', false);
     },
-    /** Products **/
+    /** Product **/
     async getProducts(context) {
       const res = await axios.get(`${mesmerizeAPI}Products`);
       let { results, err} = await res.data;
@@ -162,6 +166,52 @@ export default createStore({
       } catch (error) {
         commit('setMessage', 'Failed to delete product');
       }
+    },
+    /** Cart **/
+    async getCart(context, id) {
+      const res = await axios.get(`${mesmerizeAPI}/user/${id}carts`);
+      let {results, err} = await res.data
+      if (results) {
+        context.commit('theCart', results)        
+      } else {
+        context.commit('setMessage', err)
+      }
+    },
+    async addCart(context, id) {
+      const res = await axios.post(`${mesmerizeAPI}/user/${id}cart`);
+      let {results, err} = await res.data
+      if (results) {
+        context.commit('theCart', results)        
+      } else {
+        context.commit('setMessage', err)
+      }
+    },
+    async updateCart(context, id) {
+      const res = await axios.put(`${mesmerizeAPI}/user/${id}cart/${id}`);
+      let {results, err} = await res.data
+      if (results) {
+        context.commit('theCart', results)        
+      } else {
+        context.commit('setMessage', err)
+      }
+    },
+    async deleteCarts({ commit, dispatch }, id) {
+      try {
+        await axios.delete(`${mesmerizeAPI}/user/${id}/cart`);
+        commit('setMessage', 'Carts deleted successfully');
+        dispatch('getCart');
+      } catch (error) {
+        commit('setMessage', 'Failed to delete carts');
+      } 
+    },
+    async deleteCart({ commit, dispatch }, id) {
+      try {
+        await axios.delete(`${mesmerizeAPI}/user/${id}/cart/${id}`);
+        commit('setMessage', 'Cart deleted successfully');
+        dispatch('getCart');
+      } catch (error) {
+        commit('setMessage', 'Failed to delete cart');
+      } 
     }
   },
   modules: {

@@ -26,11 +26,11 @@
             </div>
             <div class="col-sm-2 text-start lead">
             <h6 class="lead" style="color: white;">Follow Mesmerize</h6>
-            <a id="socials" target="_blank" href="https://www.instagram.com/instagram/" class="fa-brands fa-instagram text-white"></a>
-            <a id="socials" target="_blank" href="https://www.facebook.com/facebook/" class="fa-brands fa-facebook text-white"></a>
-            <a id="socials" target="_blank" href="https://twitter.com/twitter/" class="fa-brands fa-twitter text-white"></a>
-            <a id="socials" target="_blank" href="https://www.youtube.com/channel/@youtube" class="fa-brands fa-youtube text-white"></a>
-            <a id="socials" target="_blank" href="https://www.tiktok.com/@tiktok" class="fa-brands fa-tiktok text-white"></a>
+            <a id="socials" target="_blank" href="https://www.instagram.com/instagram/" class="fa-brands fa-instagram"></a>
+            <a id="socials" target="_blank" href="https://www.facebook.com/facebook/" class="fa-brands fa-facebook"></a>
+            <a id="socials" target="_blank" href="https://twitter.com/twitter/" class="fa-brands fa-twitter"></a>
+            <a id="socials" target="_blank" href="https://www.youtube.com/channel/@youtube" class="fa-brands fa-youtube"></a>
+            <a id="socials" target="_blank" href="https://www.tiktok.com/@tiktok" class="fa-brands fa-tiktok"></a>
            </div>
            </div>
        </div>
@@ -50,7 +50,13 @@ export default {
     text-decoration: none;
     padding: 10px;
     display: block;
+    color: white;
 }
+
+#socials:hover {
+    color: blue;
+}
+
 footer {
     padding: 20px;
     box-shadow:  0px 0 19px rgba(1, 0, 0, 0.9);

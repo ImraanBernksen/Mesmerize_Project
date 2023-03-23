@@ -3,7 +3,7 @@
     <div class="background">
       <!-- <div style="background-image: url(https://i.postimg.cc/vZDVFc2Y/no-revisions-k-WVIm-L5-Qx-JI-unsplash.jpg); height: 100vh;"> -->
         <h2>About</h2>
-        <p style="font-size: 25px; padding: 20px;">I am thrilled to introduce you to Mesmerize, a new clothing brand that aims to provide unique 
+        <p style="font-size: 25px; padding: 20px;">We am thrilled to introduce you to Mesmerize, a new clothing brand that aims to provide unique 
           and high-quality clothing options to fashion-conscious consumers. Our brand is built on the 
           principles of creativity, originality, and quality, and we are confident that we have the potential to
           become a major player in the fashion industry.<br><br>

@@ -1,13 +1,13 @@
 <template>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-cart-shopping"></i></button>
+<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#cartSystem"><i class="fa-solid fa-cart-shopping"></i></button>
   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="cartSystem" tabindex="-1" aria-labelledby="cartSystem" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="cartSystem">Modal title</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-dark">

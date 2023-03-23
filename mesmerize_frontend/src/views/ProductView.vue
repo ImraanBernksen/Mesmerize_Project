@@ -18,13 +18,13 @@
    <SpinnerComponent v-if="isLoading"/>
    <div class="container" v-else>
     <div class="row" style="gap: 10rem; justify-content: center;" >
-    <div class="card" v-for="product in search" :key="product.productID"  style="width: 18rem;">
+    <div class="card" v-for="product in search" :key="product.productID"  style="width: 20rem;">
         <img :src="product.productImg" class="card-img-top mt-2">
         <div class="card-body text-center text-dark">
             <h5 class="card-title">{{ product.productName }}</h5>
             <p class="card-text">{{ product.productDescription }}</p>
             <p class="card-text">Price: R{{ product.productPrice }}</p>
-            <router-link :to="{name: 'singleProduct' , params: {id: product.productID}}"><button class="btn btn-dark">View</button></router-link>
+            <router-link :to="{name: 'singleProduct' , params: {id: product.productID}}"><button class="btn btn-outline-dark">View</button></router-link>
         </div>
     </div>
     </div>
