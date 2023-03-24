@@ -1,8 +1,8 @@
 <template>
     <NavBar/>
     <div class="background">
-      <!-- <div style="background-image: url(https://i.postimg.cc/vZDVFc2Y/no-revisions-k-WVIm-L5-Qx-JI-unsplash.jpg); height: 100vh;"> -->
         <h2>About</h2>
+        <img class="img-fluid" src="https://i.postimg.cc/y6DLw6zr/black-logo-removebg-preview.png">
         <p style="font-size: 25px; padding: 20px;">We am thrilled to introduce you to Mesmerize, a new clothing brand that aims to provide unique 
           and high-quality clothing options to fashion-conscious consumers. Our brand is built on the 
           principles of creativity, originality, and quality, and we are confident that we have the potential to
@@ -15,7 +15,11 @@
           Our marketing strategy includes creating a strong social media presence, participating in 
           fashion shows and events, and collaborating with influencers and other brands. We could offer 
           exclusive discounts and promotions to our respective customers. Launching an e-commerce 
-          website to make shopping for Mesmerize clothing convenient for customers worldwide.</p>
+          website to make shopping for Mesmerize clothing convenient for customers worldwide.<br><br>
+          We are seeking an investment to help us bring our brand to the next level. With this investment, 
+          we plan to expand our product line, increase our marketing efforts, and improve our operations 
+          to ensure a seamless customer experience. We believe that Mesmerize has the potential to 
+          become a successful and profitable brand.</p>
           <div class="theFounder">
             <div class="card text-dark" style="width: 18rem;">
           <img src="https://i.postimg.cc/kXZsqSPz/t0.jpg"  class="card-img-top mx-auto mt-5 image" style="width: 15rem;">

@@ -54,7 +54,7 @@
                     userEmail: '',
                     userPassword: '',
                     userImg: 'https://i.postimg.cc/gk1Rx1wb/Default-User-Profile.jpg',
-                    userRole: '',
+                    userRole: 'User',
                     joinDate: ''
                 }
             }

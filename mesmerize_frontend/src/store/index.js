@@ -81,10 +81,26 @@ export default createStore({
         context.commit('setMessage', err)
       }
     },
+    async updateUser(context, payload) {
+      try {
+        const res = await axios.put(`${mesmerizeAPI}user/${payload.userID}`, payload)
+        console.log('Response:' , res);
+        alert ('USER UPDATED SUCCESSFULLY')
+        let { results, err} = await res.data;
+        if (results) {
+          context.commit('theUser', results[0])          
+        } else {
+          context.commit('setMessage', err)
+        }
+      } catch(error) {
+        console.log(error);
+      }
+    },
     async deleteUser({ commit, dispatch }, id) {
       try {
         await axios.delete(`${mesmerizeAPI}User/${id}`);
         commit('setMessage', 'User deleted successfully');
+        alert ('USER DELETED SUCCESSFULLY')
         dispatch('getUsers');
       } catch (error) {
         commit('setMessage', 'Failed to delete user');
@@ -95,6 +111,7 @@ export default createStore({
       try {
         const res = await axios.post(`${mesmerizeAPI}register`, payload);
         console.log('Response:', res);
+        alert ('USER CREATED SUCCESSFULLY')
         const { result, msg, err } = await res.data;
         if (result) {
           context.commit('theUser', result);
@@ -111,6 +128,7 @@ export default createStore({
       try {
         const response = await axios.post(`${mesmerizeAPI}login`, payload);
         console.log('Response' , response);
+        alert ('LOGGED IN SUCCESSFULLY')
         const {result, jwToken, msg, err} = await response.data
         if (result) {
           context.commit('theUser', result);
@@ -161,6 +179,7 @@ export default createStore({
       try {
         const res = await axios.post(`${mesmerizeAPI}product`, payload);
         console.log('Response:' , res);
+        alert ('PRODUCT CREATED SUCCESSFULLY')
         let { result, msg, err } = await res.data;
         if (result) {
           context.commit('theProduct', result);
@@ -172,10 +191,26 @@ export default createStore({
         console.error(error) 
       }
     },
+    async updateProduct(context, payload) {
+      try {
+        const res = await axios.put(`${mesmerizeAPI}product/${payload.productID}`, payload)
+        console.log('Response:' , res);
+        alert ('PRODUCT UPDATED SUCCESSFULLY')
+        let { results, err} = await res.data;
+        if (results) {
+          context.commit('theProduct', results[0])          
+        } else {
+          context.commit('setMessage', err)
+        }
+      } catch(error) {
+        console.log(error);
+      }
+    },
     async deleteProduct({ commit, dispatch }, id) {
       try {
         await axios.delete(`${mesmerizeAPI}Product/${id}`);
         commit('setMessage', 'Product deleted successfully');
+        alert ('PRODUCT DELETED SUCCESSFULLY')
         dispatch('getProducts');
       } catch (error) {
         commit('setMessage', 'Failed to delete product');

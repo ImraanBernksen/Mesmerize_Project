@@ -32,7 +32,49 @@
         <td><img :src="user.userImg" class="img-fluid"></td>
         <td>{{ user.userRole }}</td>
         <td>{{ user.joinDate }}</td>
-        <td><UpdateUser/></td>
+        <td>
+          <button class="btn btn-outline-dark" data-bs-toggle="modal" :data-bs-target="'#editUsers'+ `${user.userID}`"><i class="fa-solid fa-pen-to-square"></i></button>
+          <!-- Modal -->
+          <div class="modal fade" :id="'editUsers'+ `${user.userID}`" tabindex="-1" aria-labelledby="editUsers" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="editUsers">Edit Users</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form @submit.prevent="updateUser(user)">
+                  <div class="form-outline mb-4">
+                      <input type="text" v-model="user.firstName" class="form-control" />
+                  </div>
+                  <div class="form-outline mb-4">
+                      <input type="text" v-model="user.lastName" class="form-control" />
+                  </div>
+                  <div class="form-outline mb-4">
+                      <input type="email" v-model="user.userEmail" class="form-control" />
+                  </div>
+                  <div class="form-outline mb-4">
+                      <input type="password" v-model="user.userPassword" class="form-control" />
+                  </div>
+                  <div class="form-outline mb-4">
+                      <input type="text" v-model="user.userImg" class="form-control" />
+                  </div>
+                  <div class="form-outline mb-4">
+                      <input type="text" v-model="user.userRole" class="form-control" />
+                  </div>
+                  <div class="form-outline mb-4">
+                      <input type="date" v-model="user.joinDate" class="form-control" />
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-outline-dark">Save changes</button>
+                  </div>
+              </form>
+              </div>
+              </div>
+          </div>
+          </div>
+        </td>
         <td><button type="submit" @click="deleteUser(user.userID)" class="btn btn-outline-dark"><i class="fa-solid fa-trash"></i></button></td>
       </tr>
     </tbody>
@@ -69,7 +111,45 @@
             <td>R{{ product.productPrice }}</td>
             <td><img :src="product.productImg" class="img-fluid"></td>
             <td>{{ product.quantity }}</td>
-            <td><UpdateProduct/></td>
+            <td>
+        <button class="btn btn-outline-dark" data-bs-toggle="modal" :data-bs-target="'#editProducts'+ `${product.productID}`"><i class="fa-solid fa-pen-to-square"></i></button>
+        <div class="modal fade" :id="'editProducts'+ `${product.productID}`" tabindex="-1" aria-labelledby="editProducts" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editProducts">Edit Products</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form @submit.prevent="updateProduct(product)">
+            <div class="form-outline mb-4">
+                <input type="text" v-model="product.productName" class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="product.productDescription" class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="product.category" class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="product.productPrice" class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="product.productImg" class="form-control" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="product.quantity" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-dark">Save changes</button>
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>
+    </div> 
+            </td>
             <td><button type="submit" @click="deleteProduct(product.productID)" class="btn btn-outline-dark"><i class="fa-solid fa-trash"></i></button></td>
         </tr>
     </tbody>
@@ -86,18 +166,14 @@ import NavBar from '../components/NavBar.vue';
 import FooterComponent from '../components/FooterComponent.vue';
 import SpinnerComponent from '@/components/SpinnerComponent.vue';
 import AddUser from '@/components/AddUser.vue';
-import UpdateUser from '@/components/UpdateUser.vue';
 import AddProduct from '@/components/AddProduct.vue';
-import UpdateProduct from '@/components/UpdateProduct.vue';
 export default {
   components: {
     NavBar,
     FooterComponent,
     SpinnerComponent,
     AddUser,
-    UpdateUser,
-    AddProduct,
-    UpdateProduct,
+    AddProduct
 },
         data(){
         return {
@@ -126,7 +202,32 @@ methods: {
     },
     deleteProduct(id) {
       this.$store.dispatch('deleteProduct', id);
-    }
+    },
+      updateProduct: function (product) {
+          return this.$store.dispatch('updateProduct', {
+              productID: product.productID,
+              productName: product.productName,
+              productDescription: product.productDescription,
+              category: product.category,
+              productPrice: product.productPrice,
+              productImg: product.productImg,
+              quantity: product.quantity
+          })
+          
+      },
+      updateUser: function (user) {
+          return this.$store.dispatch('updateUser', {
+              userID: user.userID,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              userEmail: user.userEmail,
+              userPassword: user.userPassword,
+              userImg: user.userImg,
+              userRole: user.userRole,
+              joinDate: user.joinDate
+          })
+          
+      }
 },
 }
 </script>
