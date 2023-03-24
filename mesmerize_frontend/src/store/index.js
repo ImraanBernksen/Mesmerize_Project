@@ -147,12 +147,6 @@ export default createStore({
         console.error(error);
       }
     },
-    /** Logout **/
-    logout({ commit }) {
-      localStorage.removeItem('token');
-      commit('theUser', null);
-      commit('setIsLoggedIn', false);
-    },
     /** Product **/
     async getProducts(context) {
       const res = await axios.get(`${mesmerizeAPI}Products`);
