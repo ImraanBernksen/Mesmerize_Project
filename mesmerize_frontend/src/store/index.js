@@ -212,21 +212,18 @@ export default createStore({
     },
     /** Cart **/
     async getCart(context, id) {
-      const res = await axios.get(`${mesmerizeAPI}/user/${id}carts`);
-      let {results, err} = await res.data
-      if (results) {
-        context.commit('theCart', results)        
-      } else {
-        context.commit('setMessage', err)
-      }
+      const res = await axios.get(`${mesmerizeAPI}user/${id}/carts`);
+      context.commit('theCart', res.data)
+      console.log(id);
     },
-    async addCart(context, id) {
-      const res = await axios.post(`${mesmerizeAPI}/user/${id}cart`);
-      let {results, err} = await res.data
-      if (results) {
-        context.commit('theCart', results)        
+    async addCart(context, {payload}) {
+      console.log(payload);
+      let userID = localStorage.getItem('userID')
+      const {res, message} = await axios.post(`${mesmerizeAPI}user/${userID}/cart`, payload);
+      if (res) {
+        context.commit('theCart', res.data)        
       } else {
-        context.commit('setMessage', err)
+        context.commit('setMessage', message)
       }
     },
     async updateCart(context, id) {

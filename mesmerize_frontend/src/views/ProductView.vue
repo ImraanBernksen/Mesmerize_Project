@@ -13,7 +13,7 @@
         <option value="T-Shirts">T-Shirts</option>
         <option value="Sweatpants">Sweatpants</option>
       </select>
-        <div class="input-group" style="width: 15%;"> 
+        <div class="input-group w-25" > 
           <input type="search" v-model="searchByName" class="form-control rounded" placeholder="Search name" aria-label="Search" aria-describedby="search-addon" />
         </div>
         <button type="button" @click.prevent="sortByPrice" class="btn btn-light">Sort by price</button>
@@ -113,5 +113,11 @@ body {
 .container {
   margin-top: 50px;
   padding-bottom: 50px;
+}
+@media (max-width:300px){
+  .shop {
+    display: block;
+  }
+  
 }
 </style>

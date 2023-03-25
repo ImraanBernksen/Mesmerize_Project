@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <a href="/"><img style="height: 2rem;" class="img-fluid" src="https://i.postimg.cc/NFL3dKw8/whitelogo-middle.png"></a>
-          <ul class="navbar-nav ms-auto" id="navbar_middle">
+          <ul class="navbar-nav me-auto" id="navbar_middle">
             <li class="nav-item">
               <a class="nav-link" href="/">HOME</a>
             </li>
@@ -30,13 +30,20 @@
             <li class="nav-item">
               <a class="nav-link" href="/login">LOGIN</a>
             </li>
-            <router-link :to="{name: 'logout'}"><li><button class="btn btn-outline-dark">Logout</button></li></router-link>
-            <li class="nav-item">
-              <a class="nav-link" href="/myAccount">MY ACCOUNT</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="/checkout">CHECKOUT</a>
             </li>
+            <li class="nav-item">
+            <div class="dropdown">
+              <a class="btn btn-white text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ACCOUNT
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/myAccount">PROFILE</a></li>
+                <li><router-link :to="{name: 'logout'}"><li><button class="btn btn-outline-dark">LOGOUT</button></li></router-link></li>
+              </ul>
+            </div>
+          </li>
           </ul>
         </div>
       </div>
@@ -76,8 +83,8 @@ nav {
   z-index: 10;
 }
 
-#navbar_middle {
+/* #navbar_middle {
   position: relative;
   left: 95px;
-}
+} */
 </style>

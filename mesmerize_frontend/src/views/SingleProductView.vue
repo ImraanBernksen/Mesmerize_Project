@@ -15,7 +15,7 @@
                         <h5 class="card-text">Category: {{ product?.category }}</h5><br>
                         <h5 class="card-text">Price: R{{ product?.productPrice }}</h5><br>
                         <h5 class="card-text">Quantity: {{ product?.quantity }}</h5><br>
-                        <button class="btn btn-outline-light">Add to Cart</button>
+                        <button class="btn btn-outline-light" @click="addCart(product)">Add to Cart</button>
                     </div>
                 </div>
               </div>
@@ -60,6 +60,19 @@ setup() {
   },
   mounted() {
     this.$store.dispatch("getProduct", this.$route.params.id);
+  },
+  methods: {
+    async addCart(product) {
+      const userID = localStorage.getItem('user', );
+      console.log(userID, product.productID);
+      this.$store.dispatch('addCart', {
+        userID: userID,
+        payload: {
+          userID: userID,
+          productID: product.productID
+        }
+      })
+    }
   }
 }
 </script>

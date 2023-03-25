@@ -1,7 +1,7 @@
 <template>
     <NavBar/>
     <div class="background">
-        <h2>My Account</h2>
+        <h2>Profile</h2>
         <img class="img-fluid" :src="$store.state.user?.userImg">
         <div class="profile">
         <h4>Welcome, {{ $store.state.user?.firstName }} {{ $store.state.user?.lastName }}</h4>
